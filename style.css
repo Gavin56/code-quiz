@@ -1,0 +1,15 @@
+li {
+    float: left;
+    list-style: none;
+    text-align: center;
+    background-color: purple;
+    color: white;
+    margin-right: 30px;
+    width: 150px;
+    line-height: 60px;
+    border-radius:15px;
+}
+
+#timer {
+    text-align: right;
+}
