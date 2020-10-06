@@ -9,14 +9,17 @@ li {
     width: 165px;
     line-height: 60px;
     border-radius:15px;
+    border: 2px solid black;
 }
 
 #timer {
     text-align: right;
+    margin-right: 20px;
+    margin-top: 30px;
 }
 
 #question {
-    font-size: 20px;
+    font-size: 25px;
     padding-top: 20px;
     padding-left: 20px;
 }
@@ -28,10 +31,16 @@ li {
 .jumbotron {
     padding: 0 0 4% 0;
     margin-left: 10%;
+    border: 5px double;
 }
 
 #question-result {
     text-align: center;
     font-family: Impact, Charcoal, sans-serif;
     font-size: 30px;
+}
+
+#scores {
+    margin-left: 20px;
+    float:left;
 }
