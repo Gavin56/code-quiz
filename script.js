@@ -30,7 +30,7 @@ var intervalId;
 function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
-  body.innerHTML = "Game over, You scored " + correctCount;
+  body.innerHTML = "Game over, You scored " + correctCount + "!";
 
   setTimeout(showHighScore, 2000);
   // wait 2 seconds and call showHighScore;
@@ -99,12 +99,12 @@ function checkAnswer(event) {
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
-      questionResultEl.textContent = "Correct";
+      questionResultEl.textContent = "Correct!";
       correctCount++;
     } else {
-      questionResultEl.textContent = "Incorrect";
+      questionResultEl.textContent = "Incorrect!";
       time = time - 2;
-      timerEl.textContent = time;
+      timerEl.textContent = "Time: " + time;
     }
   }
   setTimeout(nextQuestion, 2000);

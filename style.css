@@ -4,12 +4,34 @@ li {
     text-align: center;
     background-color: purple;
     color: white;
+    margin-top: 50px;
     margin-right: 30px;
-    width: 150px;
+    width: 165px;
     line-height: 60px;
     border-radius:15px;
 }
 
 #timer {
     text-align: right;
+}
+
+#question {
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.container {
+    margin: 5% 0 0 10%;
+}
+
+.jumbotron {
+    padding: 0 0 4% 0;
+    margin-left: 10%;
+}
+
+#question-result {
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 30px;
 }
