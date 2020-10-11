@@ -10,6 +10,24 @@ var questions = [
     choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
     answer: "parentheses",
   },
+  {
+    question:
+      "Which list type is a numbered list?",
+    choices: ["ol", "ul", "li"],
+    answer: "ol",
+  },
+  {
+    question:
+      "Is JavaScript a front-end, back-end, or full-stack programming language?",
+    choices: ["front-end", "back-end", "full-stack"],
+    answer: "full-stack",
+  },
+  {
+    question:
+      "How do you change the text color of an element?",
+    choices: ["color:", "text-color =", "text-color:", "fgcolor:"],
+    answer: "color:",
+  },
 ];
 
 var questionEl = document.querySelector("#question");
