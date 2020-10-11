@@ -75,7 +75,7 @@ function toHighScore() {
     contentLI.id = "userScore";
 
     contentLI.textContent =
-      "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+      "Name: " + high_scores[i].name + " | " + " Score: " + high_scores[i].score;
     contentUL.appendChild(contentLI);
   }
 
@@ -87,7 +87,7 @@ function toHighScore() {
   clearButton.setAttribute("id", "clearButton");
   clearButton.textContent = "Clear High Scores";
   bigDiv.append(clearButton);
-  clearButton.addEventListener("click", function(){
+  clearButton.addEventListener("click", function () {
     localStorage.clear();
     contentUL.textContent = "";
   });
@@ -98,7 +98,7 @@ function toHighScore() {
   bigDiv.append(backButton);
 
   backButton = document.getElementById("backButton");
-  backButton.addEventListener("click", function(){
+  backButton.addEventListener("click", function () {
     location.reload();
   });
 
@@ -138,9 +138,11 @@ function showHighScore() {
     var contentLI = document.createElement("li");
     contentLI.id = "userScore";
     contentLI.textContent =
-      "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+      "Name: " + high_scores[i].name + " | " + " Score: " + high_scores[i].score;
     contentUL.appendChild(contentLI);
+
   }
+
 
   bigDiv.appendChild(contentUL);
 
@@ -150,7 +152,7 @@ function showHighScore() {
   bigDiv.append(backButton);
 
   backButton = document.getElementById("backButton");
-  backButton.addEventListener("click", function(){
+  backButton.addEventListener("click", function () {
     location.reload();
   });
 }
@@ -175,7 +177,7 @@ function renderQuestion() {
     updateTime();
     return;
   }
-  
+
   intervalId = setInterval(updateTime, 1000);
   questionEl.textContent = questions[questionIndex].question;
 
@@ -217,7 +219,7 @@ function checkAnswer(event) {
   setTimeout(nextQuestion, 2000);
 }
 
-  
+
 var scoreButton = document.getElementById("highScore");
 scoreButton.addEventListener("click", toHighScore);
 
