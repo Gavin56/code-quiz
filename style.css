@@ -12,6 +12,29 @@
     border: 2px solid black;
 }
 
+
+p {
+    /* font-family: Arial, sans-serif; */
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#startButton {
+    float: left;
+    list-style: none;
+    text-align: center;
+    background-color: purple;
+    color: white;
+    margin-top: 20px;
+    margin-right: 30px;
+    margin-left: 42%;
+    width: 165px;
+    line-height: 60px;
+    border-radius:15px;
+    border: 2px solid black;
+    
+}
+
 #gameOver {
     text-align: center;
 }
@@ -42,7 +65,8 @@
 }
 
 .container {
-    margin: 5% 0 0 10%;
+    margin-top: 5%;
+    text-align: center;
 }
 
 .jumbotron {
