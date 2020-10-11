@@ -143,9 +143,17 @@ function showHighScore() {
 
   }
 
-
   bigDiv.appendChild(contentUL);
 
+  var clearButton = document.createElement("button");
+  clearButton.setAttribute("id", "clearButton");
+  clearButton.textContent = "Clear High Scores";
+  bigDiv.append(clearButton);
+  clearButton.addEventListener("click", function () {
+    localStorage.clear();
+    contentUL.textContent = "";
+  });
+  
   var backButton = document.createElement("button");
   backButton.setAttribute("id", "backButton");
   backButton.textContent = "Start over";
