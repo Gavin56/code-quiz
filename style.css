@@ -1,4 +1,4 @@
-li {
+#questionLI {
     float: left;
     list-style: none;
     text-align: center;
@@ -10,6 +10,23 @@ li {
     line-height: 60px;
     border-radius:15px;
     border: 2px solid black;
+}
+
+#gameOver {
+    text-align: center;
+}
+
+#userScore {
+    /* display: none; */
+
+}
+
+#userList {
+    /* background-color: gray;
+    border: 2px solid black;
+    width: 100px;
+    line-height: 60px; */
+
 }
 
 #timer {
@@ -34,6 +51,10 @@ li {
     border: 5px double;
 }
 
+.questionSection {
+    display:none;
+}
+
 #question-result {
     text-align: center;
     font-family: Impact, Charcoal, sans-serif;
@@ -44,3 +65,5 @@ li {
     margin-left: 20px;
     float:left;
 }
+
+

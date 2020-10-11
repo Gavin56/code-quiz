@@ -29,31 +29,130 @@ var intervalId;
 
 function endQuiz() {
   clearInterval(intervalId);
-  var body = document.body;
-  body.innerHTML = "Game over, You scored " + correctCount + "!";
+
+  document.body.textContent = "";
+
+  var gameOverDiv = document.createElement("div");
+  gameOverDiv.setAttribute("class", "container");
+  gameOverDiv.setAttribute("id", "gameOver");
+  document.body.append(gameOverDiv);
+  gameOverDiv.innerHTML = "Game over. You scored " + correctCount + "!";
 
   setTimeout(showHighScore, 2000);
   // wait 2 seconds and call showHighScore;
 }
 
-function showHighScore() {
-  // write code here
-  var user = prompt("What is your name?");
-  var userArray = [];
+function toHighScore() {
+  clearInterval(intervalId);
 
-  localStorage.setItem("user", user);
-  localStorage.setItem("highScore", correctCount);
+  document.body.textContent = "";
 
-  var userObj = {
-    name: user,
-    score: correctCount
+  var high_scores = localStorage.getItem("scores");
+
+  if (!high_scores) {
+    high_scores = [];
+  } else {
+    high_scores = JSON.parse(high_scores);
   }
 
-  userArray.push(userObj);
-  userArraysort((a,b)=>a-b);
+  // high_scores.push({ name: name, score: correctCount });
 
-  console.log(userArray);
+  localStorage.setItem("scores", JSON.stringify(high_scores));
 
+  high_scores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+
+  var bigDiv = document.createElement("div");
+  bigDiv.setAttribute("class", "container");
+  document.body.append(bigDiv);
+
+  var contentUL = document.createElement("ul");
+  contentUL.id = "userList";
+
+  for (var i = 0; i < high_scores.length; i++) {
+    var contentLI = document.createElement("li");
+    contentLI.id = "userScore";
+
+    contentLI.textContent =
+      "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+    contentUL.appendChild(contentLI);
+  }
+
+  bigDiv.appendChild(contentUL);
+
+
+  //Clear High Score button...............................
+  var clearButton = document.createElement("button");
+  clearButton.setAttribute("id", "clearButton");
+  clearButton.textContent = "Clear High Scores";
+  bigDiv.append(clearButton);
+  clearButton.addEventListener("click", function(){
+    localStorage.clear();
+    contentUL.textContent = "";
+  });
+
+  var backButton = document.createElement("button");
+  backButton.setAttribute("id", "backButton");
+  backButton.textContent = "Go back";
+  bigDiv.append(backButton);
+
+  backButton = document.getElementById("backButton");
+  backButton.addEventListener("click", function(){
+    location.reload();
+  });
+
+}
+
+
+function showHighScore() {
+
+  document.body.textContent = "";
+
+  var name = prompt("Please enter your name");
+
+  var high_scores = localStorage.getItem("scores");
+
+  if (!high_scores) {
+    high_scores = [];
+  } else {
+    high_scores = JSON.parse(high_scores);
+  }
+
+  high_scores.push({ name: name, score: correctCount });
+
+  localStorage.setItem("scores", JSON.stringify(high_scores));
+
+  high_scores.sort(function (a, b) {
+    return b.score - a.score;
+  });
+
+  var bigDiv = document.createElement("div");
+  bigDiv.setAttribute("class", "container");
+  document.body.append(bigDiv);
+
+  var contentUL = document.createElement("ul");
+  contentUL.id = "userList";
+
+  for (var i = 0; i < high_scores.length; i++) {
+    var contentLI = document.createElement("li");
+    contentLI.id = "userScore";
+    contentLI.textContent =
+      "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+    contentUL.appendChild(contentLI);
+  }
+
+  bigDiv.appendChild(contentUL);
+
+  var backButton = document.createElement("button");
+  backButton.setAttribute("id", "backButton");
+  backButton.textContent = "Start over";
+  bigDiv.append(backButton);
+
+  backButton = document.getElementById("backButton");
+  backButton.addEventListener("click", function(){
+    location.reload();
+  });
 }
 
 function updateTime() {
@@ -65,6 +164,13 @@ function updateTime() {
 }
 
 function renderQuestion() {
+
+  var startSection = document.querySelector(".start");
+  startSection.style.display = "none";
+
+  var questionSection = document.querySelector(".questionSection");
+  questionSection.style.display = "block";
+
   if (time == 0) {
     updateTime();
     return;
@@ -81,6 +187,7 @@ function renderQuestion() {
 
   for (var i = 0; i < choicesLenth; i++) {
     var questionListItem = document.createElement("li");
+    questionListItem.id = "questionLI";
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
   }
@@ -110,5 +217,12 @@ function checkAnswer(event) {
   setTimeout(nextQuestion, 2000);
 }
 
-renderQuestion();
+  
+var scoreButton = document.getElementById("highScore");
+scoreButton.addEventListener("click", toHighScore);
+
+var startButton = document.getElementById("startButton");
+startButton.addEventListener("click", renderQuestion);
+
+
 optionListEl.addEventListener("click", checkAnswer);

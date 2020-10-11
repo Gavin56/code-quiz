@@ -10,39 +10,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+
 <body>
-  <div class="row">
-    <div class="col-12">
-      <div id="timer"></div>
-      <div id="scores">
-        <a type="button" class="btn btn-dark" href="highscores.html">View High Scores</a>
+  <div id = "wrapper">
+    <div class="row">
+      <div class="col-12">
+        <div id="timer"></div>
+        <div id="scores">
+          <a id = "highScore" type="button" class="btn btn-dark">View High Scores</a>
+        </div>
+      </div>
+    </div>
+
+    <section class = "start">
+      <div class = "container">
+        <p>Press the button to start the quiz!</p>
+        <button id = "startButton">Start!</button>
+      </div>
+    </section>
+
+    <div class="container questionSection">
+      <div class="jumbotron">
+        <div id="question"></div>
+        <ul id="option-list"></ul>
+        <hr class="my-4">
+
+        <br> <br> <br>
+
+        <hr class="my-4">
+        <div id="question-result"></div>
       </div>
     </div>
   </div>
 
-
-  <div class="container">
-    <div class="jumbotron">
-      <div id="question"></div>
-      <ul id="option-list"></ul>
-      <hr class="my-4">
-
-      <br> <br> <br>
-
-      <hr class="my-4">
-      <div id="question-result"></div>
-    </div>
   </div>
 
-  <!-- <div id="question"></div>
+  <script src="./script.js">
 
-      <ul id="option-list"></ul>
-    
-      <div id="question-result"></div> -->
 
-  </div>
-
-  <script src="./script.js"></script>
+  </script>
 </body>
 
 </html>
