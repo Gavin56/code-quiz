@@ -13,6 +13,11 @@
     font-family: "Lucida Console", Monaco, monospace;
 }
 
+.highScoresTitle {
+    text-align: center;
+    margin-top: 30px;
+}
+
 
 p {
     font-size: 40px;
@@ -85,7 +90,6 @@ p {
     border: 2px solid black;
     margin-left: 325px;
     margin-right: 325px;
-    font-family: Impact, Charcoal, sans-serif;
     font-size: 20px;
 }
 

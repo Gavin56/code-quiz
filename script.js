@@ -63,6 +63,11 @@ function toHighScore() {
     return b.score - a.score;
   });
 
+  var highScoresTitle = document.createElement("h1");
+  highScoresTitle.setAttribute("class", "highScoresTitle");
+  highScoresTitle.textContent = "High Scores:";
+  document.body.append(highScoresTitle);
+
   var bigDiv = document.createElement("div");
   bigDiv.setAttribute("class", "container");
   document.body.append(bigDiv);
@@ -126,6 +131,11 @@ function showHighScore() {
   high_scores.sort(function (a, b) {
     return b.score - a.score;
   });
+ 
+  var highScoresTitle = document.createElement("h1");
+  highScoresTitle.setAttribute("class", "highScoresTitle");
+  highScoresTitle.textContent = "High Scores:";
+  document.body.append(highScoresTitle);
 
   var bigDiv = document.createElement("div");
   bigDiv.setAttribute("class", "container");
@@ -153,7 +163,7 @@ function showHighScore() {
     localStorage.clear();
     contentUL.textContent = "";
   });
-  
+
   var backButton = document.createElement("button");
   backButton.setAttribute("id", "backButton");
   backButton.textContent = "Start over";
